@@ -125,19 +125,21 @@ const data = [
   Refresh the page to see the new article.
 */
 
-const articleGallery = document.querySelector('.articles')
+
 
 function articleMaker(articleArr){
   const articleDiv = Object.assign(document.createElement('div'), { className: 'article' })
 
+  //title & date
   const title = document.createElement('h2')
   title.textContent = articleArr.title
   articleDiv.appendChild(title)
 
-  const date = document.createElement('p')
+  const date = Object.assign(document.createElement('p'), { className: 'date'})
   date.textContent = articleArr.date
   articleDiv.appendChild(date)
   
+  //three paragraphs
   const p1 = document.createElement('p')
   p1.textContent = articleArr.firstParagraph
   articleDiv.appendChild(p1)
@@ -149,15 +151,15 @@ function articleMaker(articleArr){
   const p3 = document.createElement('p')
   p3.textContent = articleArr.thirdParagraph
   articleDiv.appendChild(p3)
-  
+
+  //span with event listener
   const span = Object.assign(document.createElement('span'), { className: 'expandButton'})
   span.textContent = '+'
+  articleDiv.appendChild(span)
   
   span.addEventListener('click', () => {
     articleDiv.classList.toggle('article-open')
   })
-  articleDiv.appendChild(span)
-
 
   return articleDiv
 
@@ -165,9 +167,7 @@ function articleMaker(articleArr){
 }
 
 data.forEach((article) => {
- article = articleMaker(article)
-articleGallery.appendChild(article)
-return article
+  document.querySelector('div.articles').appendChild(articleMaker(article))
 })
 
 
