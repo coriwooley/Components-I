@@ -129,33 +129,29 @@ const data = [
 
 function articleMaker(articleArr){
   const articleDiv = Object.assign(document.createElement('div'), { className: 'article' })
-
-  //title & date
   const title = document.createElement('h2')
-  title.textContent = articleArr.title
-  articleDiv.appendChild(title)
-
   const date = Object.assign(document.createElement('p'), { className: 'date'})
-  date.textContent = articleArr.date
-  articleDiv.appendChild(date)
-  
-  //three paragraphs
   const p1 = document.createElement('p')
-  p1.textContent = articleArr.firstParagraph
-  articleDiv.appendChild(p1)
-
   const p2 = document.createElement('p')
-  p2.textContent = articleArr.secondParagraph
-  articleDiv.appendChild(p2)
-
   const p3 = document.createElement('p')
-  p3.textContent = articleArr.thirdParagraph
-  articleDiv.appendChild(p3)
-
-  //span with event listener
   const span = Object.assign(document.createElement('span'), { className: 'expandButton'})
-  span.textContent = '+'
+  //
+  
+  
+  articleDiv.appendChild(title)
+  articleDiv.appendChild(date)
+  articleDiv.appendChild(p1)
+  articleDiv.appendChild(p2)
+  articleDiv.appendChild(p3)
   articleDiv.appendChild(span)
+
+  date.textContent = articleArr.date
+  title.textContent = articleArr.title
+  p1.textContent = articleArr.firstParagraph
+  p2.textContent = articleArr.secondParagraph
+  p3.textContent = articleArr.thirdParagraph
+  span.textContent = '+'
+  
   
   span.addEventListener('click', () => {
     articleDiv.classList.toggle('article-open')
