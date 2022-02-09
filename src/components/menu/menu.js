@@ -36,6 +36,7 @@ let menuItems = [
 function menuMaker(menuArr){
   const menuDiv = Object.assign(document.createElement('div'), { className: 'menu' })
   const menuList = document.createElement('ul')
+  
   menuDiv.appendChild(menuList)
 
   menuArr.forEach((itemName) => {
@@ -45,6 +46,7 @@ function menuMaker(menuArr){
   })
 
   const menuButton = document.querySelector('.menu-button')
+
   menuButton.addEventListener('click', () => {
   menuDiv.classList.toggle('menu--open')
   })
